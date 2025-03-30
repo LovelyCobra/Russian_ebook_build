@@ -1,19 +1,54 @@
 # Russian_ebook_build
 Reads content of pdf files from Natalia Practical Russian YT channel (NPR), adds stress marks and converts the text into a well formatted e-book (.epub)
 
+## Dependencies
+This script should run on any system provided that Python, Chrome and Chrome driver have been installed along with all the packages listed in the import statements at the beginning of the **npr_main.py** file. (Note that **npr_cover** and **cobraprint** don't need to be installed as these are local custom modules and then a number of other imports are standard parts of Python and therefore don't need to be installed separately.)
+
 ## Folder tree
-The script is made of 3 Python files: npr_main.py, npr_cover.py, cobraprint.py. All other needed files need to be placed in the subdirectory "Practical_Russian", itself placed in the working directory. When processing a single pdf file, this file needs to be placed in this subdirectory. When processing a bunch of pdf files into an ebook collection, these files need to be placed in a subdirectory of the "Practical_Russian/", named the way one wants the collection to be named, the name containing two or maximum three words (for example: "Russian_Lessons_Intermediate").
+The script is made of 3 Python files: npr_main.py, npr_cover.py, cobraprint.py. All other needed files should be placed in the subdirectory **"Practical_Russian/"**, itself placed in the working directory along with the above Python files. 
+
+When processing a single pdf file, this file needs to be placed in this subdirectory. 
+
+When processing a bunch of pdf files into an ebook collection, these files need to be placed in a subdirectory of the **"Practical_Russian/"**, named the way one wants the collection to be named, the name containing two or maximum three words (for example: *"Practical_Russian/Russian_Lessons_Intermediate"*).
 
 Besides the sigle-lesson pdf files (and/or already annotated txt files) and subdirectories with collections, the "Practical_Russian" directory also needs to contain these further subdirectories with the following list of items:
-	- **"assets"** sub-directory: 
- 			+ *nav.css* (css styles file); 
-			+ images *Generic_cover_image.png* and *Natalia_single_lesson.png*; 
-   			+ fonts: *Roboto-BlackItalic.ttf*, *Roboto-Black.ttf*, *Sagewold-ZpwvJ.ttf*, *ARIBL0.ttf*, *SagewoldItalic-OGnlA.ttf*, *ComicNeue-BoldItalic.ttf* and *arial.ttf*;
+
+- **"assets"** sub-directory: 
+    + css styles *nav.css* 
+    + images *Generic_cover_image.png* and *Natalia_single_lesson.png*; 
+    + fonts: 
+        - *Roboto-BlackItalic.ttf*, 
+        - *Roboto-Black.ttf*, 
+        - *Sagewold-ZpwvJ.ttf*, 
+        - *SagewoldItalic-OGnlA.ttf*, 
+        - *ARIBL0.ttf*, 
+        - *ComicNeue-BoldItalic.ttf* and 
+        - *arial.ttf*;
+    + logo image *Amethyst.png*;
+- **images** sub-directory:
+    + YouTube video thumbnails as png images if we want them to be included on the first page of the ebook. These are optional and need to be added to the **Practical_Russian/images** sub-directory before the initial running of the script. Every .png thumbnail must be given the same filename as that of the original pdf file and the subsequent txt file.
+
+    See the folder tree of this repository as a template for creating the working folder tree on your computer.
 
 ## Source format
-This Python Script uses primarily pdf files containing transcripts of lessons by NPR as a text source, it parses the content with all the inevitable flaws that come about when forced to work with the **bloody pdf format**, adds the stress marks to the main body of the text with the help of the online tool at www.russiangram.com (many thanks to its provider) and saves the processed text in a .txt file of the same name as the original pdf.
+This Python Script uses primarily pdf files containing transcripts of lessons by NPR as a text source; it parses the content with all the inevitable flaws that come about when forced to work with the **bloody pdf format**, adds the stress marks to the main body of the text with the help of the online tool at ***www.russiangram.com*** (many thanks to its provider) and saves the processed text in a .txt file of the same name as the original pdf.
 
 Once the txt file with stress marks is created, it is possible to forget about the original pdf and continue working just with the txt file, even when running the code repeatedly.
 
 ## Mid-step txt-file
 Another part of the code then uses this txt file to add further markdown formating, converts the text into html format and then makes it into an ebook.
+
+Even after the ebook have been generated, one can go back to the mid-step txt file, perform necessary corrections and further editing and then one can run the script again, this time based on the txt file, instead of the original pdf file.
+
+Any desired markdown formating can be added to the text bellow the **"ТРАНСКРИПЦИЯ"** heading to improve the visual presentation, however the section above it should be left alone since that part is formatted later by the script itself. The only correction in the upper part is a removal of an occasional arbitrary new line within the "Words and Phrases" table that sometimes occurs, for completely mysterious reasons (that bloody pdf format again! ;-))
+
+## Generation of the e-book cover
+The ebook cover itself is generated by **npr_cover.py**. 
+
+For single-lesson ebook, one color pattern is used, using **Natalia_single_lesson.png** image in **Practical_Russian/images** sub-directory as a basis.
+
+When creating covers for collections, the code goes through a list of ten different colors, listed at the beginning of the above mentioned Python file. When not happy with the used color, one can run the code repeatedly, without leaving the loop (without using the action number 4 - END the program) until the desired color occurs.
+
+The used ten color are: dark green, dark red, lighter green blue, lighter grey, chocolate brown, lighter orange, deep green_blue, darker grey, darker brown, dark blue. If you wish to use different ones go to the above file and replace corresponding color codes.
+
+### Good Luck!
