@@ -1,0 +1,1 @@
+png video thumbnails need to be placed here named exactly as the corresponding pdf files.
