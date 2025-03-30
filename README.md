@@ -28,7 +28,7 @@ Besides the sigle-lesson pdf files (and/or already annotated txt files) and subd
 - **images** sub-directory:
     + YouTube video thumbnails as png images if we want them to be included on the first page of the ebook. These are optional and need to be added to the **Practical_Russian/images** sub-directory before the initial running of the script. Every .png thumbnail must be given the same filename as that of the original pdf file and the subsequent txt file.
 
-    See the folder tree of this repository as a template for creating the working folder tree on your computer.
+    See the folder tree of this repository for all the needed files and as a template for creating the working folder tree on your computer.
 
 ## Source format
 This Python Script uses primarily pdf files containing transcripts of lessons by NPR as a text source; it parses the content with all the inevitable flaws that come about when forced to work with the **bloody pdf format**, adds the stress marks to the main body of the text with the help of the online tool at ***www.russiangram.com*** (many thanks to its provider) and saves the processed text in a .txt file of the same name as the original pdf.
