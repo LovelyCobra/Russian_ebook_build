@@ -1,0 +1,17 @@
+
+body { margin: 5%; text-align: justify; font-size: 1em; }
+h1 { text-align: left; margin-bottom: 2em; page-break-after: avoid;}
+h2 { text-align: left; page-break-after: avoid; page-break-before: avoid;}
+h3 { text-align: left; page-break-after: avoid; page-break-before: avoid;}
+p { page-break-after: avoid; page-break-before: avoid;}
+nav { text-align: left; }
+nav ol { padding-left: 1em; margin: 0; }
+nav li, li { text-align: left; margin: 0.5em 0; }
+.wiki-table { border-collapse: collapse; margin: 1em 0; }
+.wiki-table td, .wiki-table th { border: 1px solid #ccc; padding: 0.5em; }
+img { max-width: 100%; height: auto; display: block; margin: 1em auto; }
+figcaption { font-style: italic; font-size:medium; text-align: center;}
+.flagicon { display: flex; text-align: left;}
+.flagicon > img { margin: 7px; max-width: 100px; }
+.templatequote {font-size: large; font-style: italic;}
+        
